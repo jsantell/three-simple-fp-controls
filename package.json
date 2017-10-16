@@ -1,0 +1,33 @@
+{
+  "name": "three-simple-fp-controls",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jsantell/three-simple-fp-controls",
+  "authors": "Jordan Santell <jordan@jsantell.com>",
+  "description": "Simple, boring, first person controls for three.js",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-cleanup": "^1.0.1",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "main": "dist/three-simple-fp-controls",
+  "keywords": [
+    "three",
+    "controls",
+    "fps",
+    "first-person"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "repository": "jsantell/three-simple-fp-controls",
+  "peerDependencies": {
+    "three": "*"
+  }
+}
