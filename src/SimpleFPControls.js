@@ -15,7 +15,6 @@ export default class SimpleFPControls {
     this.movementSpeed = 50.0;
     this.lookSpeedX = 3;
     this.lookSpeedY = 2;
-    this.edgeLookSpeed = 3;
 
     this.pitch = new Object3D();
     this.yaw = new Object3D();
@@ -49,18 +48,12 @@ export default class SimpleFPControls {
   }
 
   onMouseMove(e) {
-    if (!this.enabled) {
+    if (!this.enabled || !this.shiftKey) {
       return false;
     }
 
     let movementX = e.movementX || e.mozMovementX || e.webkitMovementX || 0;
     let movementY = e.movementY || e.mozMovementY || e.webkitMovementY || 0;
-
-    if (e.pageX < 5) {
-      movementX = -this.edgeLookSpeed;
-    } else if ((window.innerWidth - e.pageX) < 5) {
-      movementX = this.edgeLookSpeed;
-    }
 
     this.yaw.rotation.y -= movementX * this.lookSpeedX / 1000;
     this.pitch.rotation.x -= movementY * this.lookSpeedY / 1000;
@@ -69,6 +62,8 @@ export default class SimpleFPControls {
 
   onKeyDown(e) {
     switch (e.keyCode) {
+      case 16: /*shift*/ this.shiftKey = true; break;
+
       case 38: /*up*/
       case 87: /*W*/ this.moveForward = true; break;
 
@@ -85,6 +80,8 @@ export default class SimpleFPControls {
 
   onKeyUp(e) {
     switch (event.keyCode) {
+      case 16: /*ctrl*/ this.shiftKey = false; break;
+
       case 38: /*up*/
       case 87: /*W*/ this.moveForward = false; break;
 

@@ -4,7 +4,7 @@
 
 Simple, boring, first person controls for three.js.
 
-Controls for [three.js] similar to [PointerLockControls] or [FirstPersonControls], but just implements AWSD movement and mouse-look for simple strafing without pointer lock.
+Controls for [three.js] similar to [PointerLockControls] or [FirstPersonControls], but just implements AWSD movement and shift+mouse for looking, for simple strafing without pointer lock.
 
 ## Try
 
@@ -43,7 +43,6 @@ The constructor takes a single object, probably a Camera object to be controlled
 * `movementSpeed` how quickly controls move while using AWSD (default: 50)
 * `lookSpeedX` how quickly controls move while moving the mouse left and right (default: 3)
 * `lookSpeedY` how quickly controls move while moving the mouse up and down (default: 2)
-* `edgeLookSpeed` how quickly controls move while moving with the mouse on the left or right edge (default: 3)
 * `enabled` whether or not the controls should be enabled (default: true)
 
 ### Methods

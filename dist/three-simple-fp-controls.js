@@ -15,7 +15,6 @@ var SimpleFPControls$1 = function () {
     this.movementSpeed = 50.0;
     this.lookSpeedX = 3;
     this.lookSpeedY = 2;
-    this.edgeLookSpeed = 3;
     this.pitch = new three.Object3D();
     this.yaw = new three.Object3D();
     this.yaw.add(this.pitch);
@@ -48,16 +47,11 @@ var SimpleFPControls$1 = function () {
   }, {
     key: 'onMouseMove',
     value: function onMouseMove(e) {
-      if (!this.enabled) {
+      if (!this.enabled || !this.shiftKey) {
         return false;
       }
       var movementX = e.movementX || e.mozMovementX || e.webkitMovementX || 0;
       var movementY = e.movementY || e.mozMovementY || e.webkitMovementY || 0;
-      if (e.pageX < 5) {
-        movementX = -this.edgeLookSpeed;
-      } else if (window.innerWidth - e.pageX < 5) {
-        movementX = this.edgeLookSpeed;
-      }
       this.yaw.rotation.y -= movementX * this.lookSpeedX / 1000;
       this.pitch.rotation.x -= movementY * this.lookSpeedY / 1000;
       this.pitch.rotation.x = Math.max(-PI_2, Math.min(PI_2, this.pitch.rotation.x));
@@ -66,6 +60,8 @@ var SimpleFPControls$1 = function () {
     key: 'onKeyDown',
     value: function onKeyDown(e) {
       switch (e.keyCode) {
+        case 16:
+                   this.shiftKey = true;break;
         case 38:
         case 87:
                this.moveForward = true;break;
@@ -84,6 +80,8 @@ var SimpleFPControls$1 = function () {
     key: 'onKeyUp',
     value: function onKeyUp(e) {
       switch (event.keyCode) {
+        case 16:
+                  this.shiftKey = false;break;
         case 38:
         case 87:
                this.moveForward = false;break;

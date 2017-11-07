@@ -16,7 +16,7 @@
       -webkit-user-select: none;
       user-select: none;
     }
-    #info {
+    #info, #controls {
       position: absolute;
       left: 50%;
       bottom: 0;
@@ -38,6 +38,12 @@
       font-weight: bold;
       text-decoration: none;
     }
+    #controls {
+      color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(40, 40, 40, 0.6);
+      bottom: 30px;
+      width: 40%;
+    }
     .title {
       color: rgba(255, 255, 255, 0.9);
       background-color: rgba(40, 40, 40, 0.4);
@@ -53,6 +59,8 @@
 <body>
 <div id="info">
     <a href="https://github.com/jsantell/three-simple-fp-controls">@jsantell</a><span class="title">Simple First Person Controls</span>
+</div>
+<div id="controls">W+A+S+D: move, shift + mouse: look</div>
 </div>
 <script src="third_party/three.js/three.js"></script>
 <script src="third_party/three.js/SkyShader.js"></script>
@@ -91,7 +99,6 @@ function init() {
   gui.add(controls, 'movementSpeed', 0, 200);
   gui.add(controls, 'lookSpeedX', 0.5, 10);
   gui.add(controls, 'lookSpeedY', 0.5, 10);
-  gui.add(controls, 'edgeLookSpeed', 0.5, 10);
   gui.add(controls, 'enabled', true);
   update();
 }
