@@ -64,8 +64,8 @@ var SimpleFPControls$1 = function () {
       }
       var movementX = e.movementX || e.mozMovementX || e.webkitMovementX || 0;
       var movementY = e.movementY || e.mozMovementY || e.webkitMovementY || 0;
-      this.yaw.rotation.y -= movementX * this.lookSpeedX / 1000;
-      this.pitch.rotation.x -= movementY * this.lookSpeedY / 1000;
+      this.yaw.rotation.y -= movementX * this.lookSpeedX / 10000;
+      this.pitch.rotation.x -= movementY * this.lookSpeedY / 10000;
       this.pitch.rotation.x = Math.max(-PI_2, Math.min(PI_2, this.pitch.rotation.x));
     }
   }, {
