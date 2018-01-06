@@ -22,6 +22,8 @@ export default class SimpleFPControls {
     this.movementSpeed = 50.0;
     this.lookSpeedX = 30.0;
     this.lookSpeedY = 30.0;
+    this.minY = Number.NEGATIVE_INFINITY;
+    this.maxY = Number.POSITIVE_INFINITY;
 
     this.pitch = new Object3D();
     this.yaw = new Object3D();
@@ -155,7 +157,8 @@ export default class SimpleFPControls {
     this.yaw.translateZ(this.velocity.z * delta);
 
     if (this.moveUp || this.moveDown) {
-      this.object.position.y -= (Number(this.moveUp) - Number(this.moveDown)) / 25;
+      const y_contrib =  (Number(this.moveUp) - Number(this.moveDown)) / 25;
+      this.object.position.y = Math.max(this.minY, Math.min(this.maxY, this.object.position.y - y_contrib));
     }
   }
 }
