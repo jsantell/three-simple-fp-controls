@@ -21,6 +21,8 @@ var SimpleFPControls$1 = function () {
     this.movementSpeed = 50.0;
     this.lookSpeedX = 30.0;
     this.lookSpeedY = 30.0;
+    this.minY = Number.NEGATIVE_INFINITY;
+    this.maxY = Number.POSITIVE_INFINITY;
     this.pitch = new three.Object3D();
     this.yaw = new three.Object3D();
     this.yaw.add(this.pitch);
@@ -156,7 +158,8 @@ var SimpleFPControls$1 = function () {
       this.yaw.translateX(this.velocity.x * delta);
       this.yaw.translateZ(this.velocity.z * delta);
       if (this.moveUp || this.moveDown) {
-        this.object.position.y -= (Number(this.moveUp) - Number(this.moveDown)) / 25;
+        var y_contrib = (Number(this.moveUp) - Number(this.moveDown)) / 25;
+        this.object.position.y = Math.max(this.minY, Math.min(this.maxY, this.object.position.y - y_contrib));
       }
     }
   }]);
