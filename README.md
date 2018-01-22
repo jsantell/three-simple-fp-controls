@@ -6,6 +6,11 @@ Simple, boring, first person controls for three.js.
 
 Controls for [three.js] similar to [PointerLockControls] or [FirstPersonControls], but just implements AWSD movement and shift+mouse for looking, for simple strafing without pointer lock.
 
+## Controls
+
+* WASD and shift+mouse for FPS-style movement
+* IJKL for keyboard based look-controls, E and Q for moving up and down
+
 ## Try
 
 [demo](https://jsantell.github.io/three-simple-fp-controls)
