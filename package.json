@@ -1,6 +1,6 @@
 {
   "name": "three-simple-fp-controls",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/jsantell/three-simple-fp-controls",
   "authors": "Jordan Santell <jordan@jsantell.com>",
   "description": "Simple, boring, first person controls for three.js",
